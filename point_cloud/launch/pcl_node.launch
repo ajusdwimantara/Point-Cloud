@@ -1,0 +1,25 @@
+<launch>
+    <!-- Define arguments with default values -->
+    <arg name="unit_test" default="false"/>
+    <arg name="filename" default="wolf" />
+    <arg name="scale" default="2" />
+    <arg name="filepath" default="/home/ajusd/catkin_ws/src/point_cloud/data/" />
+
+    <!-- Use the argument to set a parameter -->
+    <!-- <param name="unit_test" value="$(arg unit_test)" type="bool" /> -->
+    
+    <!-- Launch C++ Node -->
+    <node pkg="point_cloud" type="point_cloud_node" name="point_cloud_node" output="screen">
+        <param name="unit_test" value="$(arg unit_test)" />
+        <param name="filename" value="$(arg filename)" />
+        <param name="scale" value="$(arg scale)" />
+        <param name="filepath" value="$(arg filepath)" />
+    </node>
+
+    <!-- Launch Python Script -->
+    <node pkg="point_cloud" type="user_input.py" name="user_input_node" output="screen" unless="$(arg unit_test)"/>
+
+    <!--Launch Rviz-->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find point_cloud)/rviz/pcl.rviz" output="screen" unless="$(arg unit_test)"/>
+
+</launch>
