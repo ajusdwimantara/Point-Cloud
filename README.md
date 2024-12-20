@@ -1,17 +1,3 @@
-
-# Knowledge Test
-
-
-## 1. Counting Prime Numbers In A Fibonacci Series
-
-### Usage
-- Go to the file (1.cpp) directory 
-- Compile the program ```g++ 1.cpp -o 1```
-- Run the program ```./1```
-
-### Demo
-![App Screenshot](/screenshots/screenshot-1.png)
-
 ## 2-4. Point Cloud Handling
 
 ### Usage
